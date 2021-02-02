@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <button id="crear" type="submit" class="btn btn-primary">Crear</button>
                 </div>
             </form>
         </div>
@@ -73,7 +73,8 @@
     </script>
     <script src="bootstrap/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous">
     </script>
-
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
         $(document).ready(function() {
@@ -81,12 +82,8 @@
         });
     </script>
 
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     
-    <script src="js/operaciones.js"></script>
-
-
-<!--     
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("formulario").addEventListener('submit', validarFormulario);
@@ -94,38 +91,35 @@
 
         function validarFormulario(evento) {
             evento.preventDefault();
-            var usuario = document.getElementById('nombre').value;
-            if (usuario.length == 0) {
-                alert('No has escrito nada en el usuario');
+            var nombre = document.getElementById('nombre').value;            
+            var imagen = document.getElementById('imagen').value;
+            var ImgExtensions = /(.jpg)$/i;
+            var archivo = document.getElementById('archivo').value;
+            var DocExtensions = /(.xlsx)$/i;
+            if (nombre.length == 0) {
+                //alert('No has escrito nada en el usuario');
+                swal('Error', 'Te falta el nombre del certificado', 'error');
+                return;
+            }if(imagen.length == 0){
+                //alert('No has subido la imagen del certificado');
+                swal('Error', 'Te falta subir la imagen del certificado', 'error');
+                return;
+            }if(archivo.length == 0){
+                //alert('No has subido el archivo de excel');
+                swal('Error', 'Te falta subir el archivo de excel', 'error');
+                return;
+            }if(!ImgExtensions.exec(imagen)){
+                //alert('No es una extencion validad, para las imagenes solo se permiten extension .jpg');
+                swal('Error', 'No es una extención validad para la imagene, la imagen debe se con extensión .jpg', 'error');
+                return;
+            }if(!DocExtensions.exec(archivo)){
+                //alert('No es un archivo de excel');
+                swal('Error', 'No es un archivo de excel', 'error');
                 return;
             }
             this.submit();
         }
-    </script> -->
-
-
-    <script>
-        /* $(document).on('ready',function(){       
-            $('#btn-ingresar').click(function(){
-                var url = "datos_login.php";
-                $.ajax({                        
-                   type: "POST",                 
-                   url: url,                     
-                   data: $("#formulario").serialize(), 
-                   success: function(data)             
-                   {
-                     $('#resp').html(data);               
-                   }
-               });
-            });
-        });
-         */
     </script>
-
-
-
-
-
 
 
 </body>
