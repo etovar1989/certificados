@@ -1,8 +1,6 @@
 <?php
 include('lib/funciones.php');
 
-var_dump($_FILES);
-
 
 $id = todos();
 $nombre = $_POST['nombre'];
