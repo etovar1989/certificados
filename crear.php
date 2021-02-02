@@ -1,6 +1,9 @@
 <?php
 include('lib/funciones.php');
 
+/* Validador de datos */
+
+
 
 $id = todos();
 $nombre = $_POST['nombre'];
