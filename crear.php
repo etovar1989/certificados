@@ -135,8 +135,9 @@ if (!file_exists($ruta)) {
         <div class="abs-center">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">En hora bueno todo salio bein</h1>
-                    <p class="lead">Preciona el boton validar para ir al portal eduteka.</p>
+                    <h1 class="display-4">En hora buena todo salió bien</h1>
+                    <p class="lead">Presiona el botón validar para ir al portal Eduteka.</p>
+                    <a class="btn btn-primary" href="http://eduteka.icesi.edu.co/certificacion/">Validar</a>
                 </div>
             </div>
         </div>
@@ -148,7 +149,7 @@ if (!file_exists($ruta)) {
         <div class="abs-center">
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-4">Pacere que algo salio mal en </h1>
+                    <h1 class="display-4">Paceré ser que algo salió mal en </h1>
                     <p class="lead"><?php echo $validador1.$validador2 ?>.</p>
                 </div>
             </div>

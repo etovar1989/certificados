@@ -52,7 +52,7 @@
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre del certificado (Mes año)" require data-toggle="tooltip" data-placement="top" title="Nombre del certificado">
                 </div>
                 <div class="form-group mb-3">
-                    <label for="imagen" class="form-label">Imagen del diploma dimenciones 1024x790</label>
+                    <label for="imagen" class="form-label">Imagen del diploma dimenciones 1024x790 y extensión jpg</label>
                     <input class="form-control form-control-sm" id="imagen" type="file" name="imagen" require data-toggle="tooltip" data-placement="top" title="La imagen debe de ser en formato JPG">
                 </div>
                 <div class="form-group mb-3">
@@ -106,11 +106,11 @@
                 return;
             }if(archivo.length == 0){
                 //alert('No has subido el archivo de excel');
-                swal('Error', 'Te falta subir el archivo de excel', 'error');
+                swal('Error', 'Te falta subir el archivo de Excel', 'error');
                 return;
             }if(!ImgExtensions.exec(imagen)){
                 //alert('No es una extencion validad, para las imagenes solo se permiten extension .jpg');
-                swal('Error', 'No es una extención validad para la imagene, la imagen debe se con extensión .jpg', 'error');
+                swal('Error', 'No es una imagen validad, la imagen debe de tener extensión jpg y ser de 1024 X 790', 'error');
                 return;
             }if(!DocExtensions.exec(archivo)){
                 //alert('No es un archivo de excel');
