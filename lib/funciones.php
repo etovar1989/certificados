@@ -63,9 +63,31 @@ function insertarRegistro($id){
     $num=0;
     for ($row = 2; $row <= $highestRow; $row++){ 
         $num++;
+        
         $nombre = $sheet->getCell("A".$row)->getValue();
         $cc = $sheet->getCell("B".$row)->getValue();
-        crearRegistro($id,$nombre,$cc);
+        
+        if($nombre != ""){
+            crearRegistro($id,$nombre,$cc);  
+        }
+        
+        
     }
 }
 
+
+
+function consultarCertificados(){
+    include("./conexion.php");
+    $query = "SELECT `idNom`, `nombre` FROM `registro_nomcertificados`";
+    $result = mysqli_query($conexion, $query);    
+    return $result;
+}
+
+
+function listadoUsuarios($idC){
+    include("../conexion.php");
+    $query = "SELECT `idCert`, `idCurso`, `usuario` FROM `registro_certificados` WHERE idCurso = $idC ";
+    $result = mysqli_query($conexion, $query);    
+    return $result;
+}
