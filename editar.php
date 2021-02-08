@@ -72,7 +72,14 @@ $certificados = consultarCertificados();
             </div>
 
         </div>
+
+
+
+
+
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous">
@@ -82,12 +89,16 @@ $certificados = consultarCertificados();
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-
-    
-
     <!-- bootbox code -->
     <script src="lib/bootbox/bootbox.min.js"></script>
     <script src="lib/bootbox/bootbox.locales.min.js"></script>
+
+
+
+    
+
+
+
 
 
     <script>
@@ -96,22 +107,6 @@ $certificados = consultarCertificados();
         });
     </script>
 
-
-
-<script>
-bootbox.alert("This is the default alert!");
-    </script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-
-
-
-
-        });
-    </script>
 
     <script>
         var botonEditar = document.getElementById('editar');
@@ -147,6 +142,52 @@ bootbox.alert("This is the default alert!");
 
 
         });
+    </script>
+
+
+
+    <script>
+        function funcion(id, nombre) {
+            bootbox.prompt({
+                title: "Modificacion de nombre!",
+                inputType: 'text',
+                value: nombre,
+                callback: function (result) {
+                    if(result.length > 4 ){
+                        actualizar(id, result, nombre);                   
+                    }else{
+                        swal('Error', 'No es un nombre valido', 'error');
+                    }                    
+                   
+                    
+
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function actualizar(id, nombre, old) {
+            var volver;
+
+            $.ajax({
+                data: {
+                    id: id,
+                    nombre: nombre
+                },
+                type: 'post',
+                url: 'lib/actualizarNombre.php',
+                success: function(respuesta) {
+                    swal("Todo salio coqueto", "Se modifico el nombre de " + old + " por el de " + respuesta, "success");                    
+
+                },
+                error: function() {
+                    //console.log("No se ha podido obtener la información");
+                    alert('Hubo un error');                    
+                }
+            });            
+
+        }
     </script>
 
 

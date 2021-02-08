@@ -11,7 +11,7 @@ $listado = listadoUsuarios($idC);
   <thead>
     <tr>
       <th scope="col">Nombre</th>
-      <th scope="col">Editar</th>
+      <th scope="col" class="text-center">Editar</th>
     </tr>
   </thead>
   <tbody>
@@ -26,7 +26,8 @@ foreach($listado as $row){
 
 
     <tr>      
-      <td><?php echo $row['usuario'] ?><a href=""><i class="bi-alarm"></i></a></td>
+      <td><?php echo $row['usuario'] ?></td>
+      <td class="text-center"><a href="javascript:funcion(<?php echo $row['idCert']?>, '<?php echo $row['usuario']?>')" class="btnPop"><i class="fas fa-pen"></i></a></td>
     </tr>
 
 
