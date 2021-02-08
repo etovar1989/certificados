@@ -1,8 +1,8 @@
 <?php
-include("conexion.php");
 
 
-$cursos[1] = "Uso pedagógico de las TIC, Transición a la Educación no Presencial (Fundación Mayaguez)";
+
+/* $cursos[1] = "Uso pedagógico de las TIC, Transición a la Educación no Presencial (Fundación Mayaguez)";
 $cursos[2] = "Uso pedagógico de las TIC, Transición a la Educación no Presencial (Manos Visibles)";
 $cursos[3] = "Uso pedagógico de las TIC, Transición a la Educación no Presencial (Agosto 2020)";
 $cursos[4] = "Diseño y creación de recursos digitales multimediales en entornos educativos (Septiembre 2020)";
@@ -29,9 +29,11 @@ echo "<br>";
 echo "<br>";
 
 $cursos1 = cursos($conexion);
-var_dump($cursos1);
+var_dump($cursos1); */
 
 /* recorre la tabla de registro_nomcertificados y devuelve un array con el id como pocicion */
+
+/* 
 function cursos($conexion){    
     $query = "SELECT `idNom`, `nombre` FROM `registro_nomcertificados`";
     $result = mysqli_query($conexion, $query);
@@ -41,6 +43,21 @@ function cursos($conexion){
     }
     return $cursos; 
 }
+ */
+
+function actualizarNombre($id, $nombre){    
+    $hoy = date("y-m-d"); 
+    include("conexion.php"); 
+    $query = "UPDATE `registro_certificados` SET `usuario`='$nombre',`fechaD`=$hoy WHERE idCert = $id";
+    $result = mysqli_query($conexion, $query);    
+    return $result;
+
+}
+
+$actualizar = actualizarNombre(1, 'Boris Sánchez Molano Ceró');
+
+var_dump($actualizar);
+
 
 
 

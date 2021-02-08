@@ -91,3 +91,19 @@ function listadoUsuarios($idC){
     $result = mysqli_query($conexion, $query);    
     return $result;
 }
+
+
+
+function actualizarNombre($id, $nombre){
+
+    include("../conexion.php");
+    $hoy = date("y-m-d"); 
+    $query = "UPDATE `registro_certificados` SET `usuario`='$nombre',`fechaD`=$hoy WHERE idCert = $id";
+    $result = mysqli_query($conexion, $query);    
+    return $result;
+
+}
+
+
+
+?>

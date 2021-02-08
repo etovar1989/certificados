@@ -108,11 +108,19 @@ $certificados = consultarCertificados();
     </script>
 
 
-    <script>
-        var botonEditar = document.getElementById('editar');
-
+    <script>        
         $("#combo").change(function() {
-            var idC = $("#combo option:selected").val();
+
+            buscarCertificado();
+
+
+        });
+    </script>
+
+
+    <script>
+    function buscarCertificado(){
+        var idC = $("#combo option:selected").val();
             if (idC > 0) {
 
 
@@ -138,10 +146,8 @@ $certificados = consultarCertificados();
             } else {
                 $("#usuarios").html("");
             }
-
-
-
-        });
+    }
+    
     </script>
 
 
@@ -178,7 +184,13 @@ $certificados = consultarCertificados();
                 type: 'post',
                 url: 'lib/actualizarNombre.php',
                 success: function(respuesta) {
-                    swal("Todo salio coqueto", "Se modifico el nombre de " + old + " por el de " + respuesta, "success");                    
+                    if(respuesta == 1){
+                        swal("Todo salio coqueto", "Se modifico el nombre de " + old + " por el de " + nombre, "success");
+                        buscarCertificado();                    
+                    }else{
+                        swal('Error', 'No se puedo actualizar', 'error');
+                    }
+                    
 
                 },
                 error: function() {
